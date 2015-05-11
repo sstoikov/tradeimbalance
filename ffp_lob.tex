@@ -1,0 +1,62 @@
+\documentclass[a4paper,leqno]{article}
+\usepackage[a4paper,margin=1.5cm]{geometry}
+\usepackage{concmath}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\def\Esp{\mathbb{E}}
+
+\def\calE{{\cal E}}
+\def\calC{{\cal C}}
+
+\def\bcalE{{\bar \calE}}
+
+\def\norm#1{\left\| {#1}\right\|}
+
+\title{Fight for the Price at the Middle of the Book\\Research Project}
+\author{Charles-Albert Lehalle, Sasha Sto\"\i{}kov}
+\date{Printed \today, version 0.1}
+\begin{document}
+\maketitle
+
+It seems to be a consensus on several stylized facts on orderbooks dynamics:
+\begin{itemize}
+\item the imbalance between the two first queue has a predictive power (see Sto\"\i{}kov);
+\item even modelling more finely the orderbook than with imbalance (see Huang-Lehalle-Rosenbaum) some volatility seems to be missing;
+  the price is too mean reverting, mostly because conditionally to the full consumption of one first limit, the ``discovered one'' is really huge;
+\item this volatility may be retrieved if we implement some ``reset'' of the orderbook state around the price;
+\item there is long memory in the signs of transactions.
+\end{itemize}
+\medskip
+
+We would like to understand how these stylized facts intricate.
+We expect to find around the stopping times at which a quote is fully consumed enough trace of a ``fight for the price'' among metaorders to offer a consistent undestanding of the upper list of stylized facts.
+
+We will restrict our analysis to ``large tick assets'' in the sense of $\eta$ being small  (i.e. lower than $1/3$).
+Reminder, $\eta=N_c/(2N_a)$, on a daily scale (see Rosenbaum-Robert).
+
+\paragraph{Descriptive statistics.}
+The first step is to try misc conditioning between what happens just after the full consumption of a quote and the future price changes. These plain statistics will allow us to understand the most probable configurations after a full consumption. For instance:
+\begin{itemize}
+\item the imbalance in consuming flows (i.e. trades) at the new limit,
+\item the frequency of large price changes conditionally to the size of the new first limit,
+\item the difference between the cancellation rates on the new first limits just after a full consumption.
+\end{itemize}
+
+\paragraph{A first step towards an explanation.}
+More structurally, we can think about a model with two regions:
+\begin{itemize}
+\item one region, close to small size of at least one of the two queues (say $Q^a$ or $Q^b$ is smaller than a threshold $\theta$), in which the \emph{imbalance of transaction flows} dominates.
+\item the remaining $(Q^a,Q^b)$ quadrant, where the \emph{imbalance of queues} dominates.
+\end{itemize}
+\medskip
+
+It should not be that hard to compute the value of $\theta$ associated to the best predictability of the two regions models, and to compared this best predictability to some raw ones.
+\medskip
+
+We may have to put aside the price movement without any transaction consuming one of the two queues.
+
+
+\end{document}
